@@ -1,3 +1,3 @@
 # Windows-KVM
-Run Windows 11 and older versions in optimized environment inside plain QEmu with KVM. TPM is currently not available. Need qemu-system-x86 package and KVM support. Download Windows ISO from [www.microsoft.com](https://www.microsoft.com/software-download/) and rename it as Windows.iso.
+Run Windows 11 and older versions in optimized environment inside plain QEmu with KVM. TPM is currently not available. Need qemu-system-x86 package and KVM support. Download Windows ISO from https://www.microsoft.com/software-download/ and rename it as Windows.iso.
 You need this packages : qemu-system-x86_64 (with KVM support), qemu-utils, wget and other dependencies that they need.
