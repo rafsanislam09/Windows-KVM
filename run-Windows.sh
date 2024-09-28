@@ -1,9 +1,18 @@
 #!/bin/sh
-if [ -f virtio-win*.iso ]; then
+WINDOWS_DISK_SIZE = 64G #Default. Change as your need.
+
+if [ -f virtio-win.iso ]; then
     echo "A disk image of Virtio Drivers for Windows found. Skipping downloading virtio-win.iso."
 else
     echo "virtio-win.iso not found. Downloading...."
     wget -O "virtio-win.iso" "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso"
+fi
+
+if [ -f win.qcow2 ]; then
+    echo "win.qcow2 found. Skipping creating new disk."
+else
+    echo "win.qcow2 disk not found. Creating...."
+    qemu-img create -f qcow2 win.qcow2 $WINDOWS_DISK_SIZE
 fi
 
 qemu-system-x86_64 \
