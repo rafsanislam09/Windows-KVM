@@ -1,5 +1,5 @@
 #!/bin/sh
-WINDOWS_DISK_SIZE = 64G #Default. Change as your need.
+WINDOWS_DISK_CAPACITY = 64G #Default maximum disk capacity is 64GB. Change as your need.
 
 if [ -f virtio-win.iso ]; then
     echo "A disk image of Virtio Drivers for Windows found. Skipping downloading virtio-win.iso."
@@ -12,7 +12,7 @@ if [ -f win.qcow2 ]; then
     echo "win.qcow2 found. Skipping creating new disk."
 else
     echo "win.qcow2 disk not found. Creating...."
-    qemu-img create -f qcow2 win.qcow2 $WINDOWS_DISK_SIZE
+    qemu-img create -f qcow2 win.qcow2 $WINDOWS_DISK_CAPACITY
 fi
 
 qemu-system-x86_64 \
