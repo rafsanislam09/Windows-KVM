@@ -1,5 +1,9 @@
 #!/bin/sh
-export WINDOWS_DISK_CAPACITY = 64G #Default maximum disk capacity is 64GB. Change as your need.
+
+# Editable section. You can edit values here.
+export WINDOWS_DISK_CAPACITY=64G # Default maximum disk capacity is 64 Gigabyte. Change as your need.
+export PROCESSOR_CORE_AMOUNT=2 # Default is 2 core. Add or remove core(s) as your need.
+export RAM=4G # Default is 4 Gigabyte RAm. Change as your need.
 
 if [ -f virtio-win.iso ]; then
     echo "A disk image of Virtio Drivers for Windows found. Skipping downloading virtio-win.iso."
@@ -15,7 +19,7 @@ else
     qemu-img create -f qcow2 win.qcow2 $WINDOWS_DISK_CAPACITY
 fi
 
-#!/bin/sh
+# Run qemu
 qemu-system-x86_64 \
  --enable-kvm \
  -name "Windows VM" \
