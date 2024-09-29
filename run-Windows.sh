@@ -18,7 +18,7 @@ fi
 #!/bin/sh
 qemu-system-x86_64 \
  --enable-kvm \
- -name "Windows" \
+ -name "Windows VM" \
  -cpu host,hv-relaxed,hv-vapic,hv-vpindex,hv-runtime,hv-time,hv-synic,hv-stimer,hv-tlbflush,hv-ipi,hv-frequencies,hv-reenlightenment,hv-evmcs,hv-stimer-direct,hv-avic,hv-syndbg,hv-xmm-input,hv-tlbflush-ext,hv-tlbflush-direct \
  -machine q35 \
  -vga none -display gtk,gl=on \
