@@ -13,3 +13,11 @@ You need these packages : *qemu-system-x86_64 (with KVM support), qemu-utils, qe
 2) Shared folder
 3) TPM 
 
+To get started :
+1. Verify your system supports KVM by installing `cpu-checker`package and running `sudo kvm-ok`. If KVM is enabled, you will get this message : `INFO: /dev/kvm exists;
+KVM acceleration can be used`
+2. run in Terminal : `git clone https://github.com/rafsanislam09/Windows-KVM.git --depth 1`. Ensure you have installed git.
+3. Download Windows ISO from [https://www.microsoft.com/software-download/](https://www.microsoft.com/software-download/), move it to the 'Windows-KVM' directory and rename it as 'Windows.iso'.
+4. Install required packages `qemu-system-x86_64` `qemu-utils` `qemu-system-gui` `wget` and other dependencies required for them.
+5. customize #Editable section in run-Windows.sh
+6. run in terminal : `chmod +x ./run-Windows.sh && ./run-Windows.sh`.
