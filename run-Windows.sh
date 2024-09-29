@@ -3,17 +3,17 @@
 # Editable section. You can edit values here.
 export WINDOWS_DISK_CAPACITY=64G # Default maximum disk capacity is 64 Gigabyte. Change as your need.
 export PROCESSOR_CORE_AMOUNT=2 # Default is 2 core. Add or remove core(s) as your need.
-export RAM=4G # Default is 4 Gigabyte RAm. Change as your need.
+export RAM=4G # Default is 4 Gigabyte RAM. Change as your need.
 
 if [ -f virtio-win.iso ]; then
-    echo "A disk image of Virtio Drivers for Windows found. Skipping downloading virtio-win.iso."
+    echo "A CDROM image of Virtio Drivers for Windows found. Skipping downloading virtio-win.iso."
 else
     echo "virtio-win.iso not found. Downloading...."
-    wget -O "virtio-win.iso" "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso"
+    wget -O 'virtio-win.iso' 'https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso'
 fi
 
 if [ -f win.qcow2 ]; then
-    echo "win.qcow2 found. Skipping creating new disk."
+    echo "A virtual disk image named win.qcow2 in QCOW2 format found. Skipping creating new disk."
 else
     echo "win.qcow2 disk not found. Creating...."
     qemu-img create -f qcow2 win.qcow2 $WINDOWS_DISK_CAPACITY
@@ -27,8 +27,8 @@ qemu-system-x86_64 \
  -machine q35 \
  -vga none -display gtk,gl=on \
  -netdev user,id=net0 \
- -m 2G \
- -smp 2 \
+ -m $RAM \
+ -smp cores=$PROCESSOR_CORE_AMOUNT \
  -drive if=pflash,format=raw,readonly=on,file=OVMF_CODE_4M.secboot.fd,index=0 \
  -drive if=pflash,format=raw,file=OVMF_VARS_4M.ms.fd,index=1 \
  -drive file=win.qcow2,id=disk,format=qcow2,index=2,if=none \
@@ -38,7 +38,7 @@ qemu-system-x86_64 \
  -device virtio-balloon \
  -device usb-tablet \
  -device virtio-net-pci,netdev=net0 \
- -device virtio-vga-gl,hostmem=16M \
+ -device virtio-vga-gl,hostmem=32M \
  -device intel-hda -device hda-output,audiodev=audio0 \
  -audiodev sdl,id=audio0 \
  -virtfs local,path=/home/hashem/,mount_tag=host0,security_model=passthrough,id=host0 \
