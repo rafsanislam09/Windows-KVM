@@ -11,9 +11,7 @@ You need these packages : *qemu-system-x86_64 (with KVM support), qemu-utils, qe
 **Currently not available :**
 1) Shared Clipboard
 2) Shared folder
-3) TPM 
-
-**
+3) TPM
 
 ## Start :
 **Installation Preparation :**
