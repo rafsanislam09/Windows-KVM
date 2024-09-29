@@ -1,5 +1,5 @@
 # Windows-KVM
-Run Windows 10 and older versions in optimized environment inside plain QEmu with KVM. TPM is currently not available. Need qemu-system-x86 package and KVM support. Required QEmu version is 9.0.2.
+Run Windows 10 and older versions in optimized environment inside plain QEmu with KVM. TPM is currently not available. You need qemu-system-x86 package with KVM support. Required QEmu version is 9.0.2.
 You need these packages : *qemu-system-x86_64 (with KVM support), qemu-utils, qemu-system-gui, wget* and other dependencies that they need. 
 **Available features :**
 1) UEFI with Secure Boot enabled
