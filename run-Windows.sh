@@ -1,5 +1,5 @@
 #!/bin/sh
-WINDOWS_DISK_CAPACITY = 64G #Default maximum disk capacity is 64GB. Change as your need.
+export WINDOWS_DISK_CAPACITY = 64G #Default maximum disk capacity is 64GB. Change as your need.
 
 if [ -f virtio-win.iso ]; then
     echo "A disk image of Virtio Drivers for Windows found. Skipping downloading virtio-win.iso."
