@@ -13,7 +13,10 @@ You need these packages : *qemu-system-x86_64 (with KVM support), qemu-utils, qe
 2) Shared folder
 3) TPM 
 
-To get started :
+**
+
+## Start :
+**Installation Preparation :**
 1. Verify your system supports KVM by installing `cpu-checker`package and running `sudo kvm-ok`. If KVM is enabled, you will get this message : `INFO: /dev/kvm exists;
 KVM acceleration can be used`
 2. run in Terminal : `git clone https://github.com/rafsanislam09/Windows-KVM.git --depth 1`. Ensure you have installed git.
@@ -21,3 +24,8 @@ KVM acceleration can be used`
 4. Install required packages `qemu-system-x86_64` `qemu-utils` `qemu-system-gui` `wget` and other dependencies required for them.
 5. customize #Editable section in run-Windows.sh
 6. run in terminal : `chmod +x ./run-Windows.sh && ./run-Windows.sh`.
+
+**Installation :**
+ 1. Follow screen instructions.
+ 2. When you will be in 'Select Disk' section, click on 'Load drivers'. then browse to '[virtio-win***\amd64\' and select 'w10' folder. Click OK. Then you will get required driver to install Windows on a specific disk. Click Next and select the virtual disk.
+ 3. Finish installation process. 
