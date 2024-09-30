@@ -33,6 +33,7 @@ qemu-system-x86_64 \
  -drive if=pflash,format=raw,file=OVMF_VARS_4M.ms.fd,index=1 \
  -drive file=win.qcow2,id=disk,format=qcow2,index=2,if=none \
  -drive file=virtio-win.iso,format=raw,index=3,media=cdrom \
+ -drive file=Windows.iso,format=raw,media=cdrom,index=4 \
  -device virtio-scsi-pci,id=scsi \
  -device scsi-hd,drive=disk,vendor='Rafsan',product='QCOW2 Disk',serial='0001',wwn='6789',ver='1.0' \
  -device virtio-balloon \
