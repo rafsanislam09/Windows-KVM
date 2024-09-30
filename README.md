@@ -27,3 +27,9 @@ KVM acceleration can be used`
  1. Follow screen instructions.
  2. When you will be in 'Select Disk' section, click on 'Load drivers'. then browse to '[virtio-win***\amd64\' and select 'w10' folder. Click OK. Then you will get required driver to install Windows on a specific disk. Click Next and select the virtual disk.
  3. Finish installation process. 
+
+**Installation of VirtIO drivers :**
+1. Go to virtio-win*** marked as a CDROM in File Explorer.
+2. Run virtio-win-guest-tools.exe as an administrator.
+3. Follow on screen instructions to install. Select all the drivers in setup window, when you will be asked. By default all drivers are marked to be installed.
+4. Reboot Windows guest.
