@@ -1,10 +1,9 @@
 #!/bin/sh
 
-# Editable section. You can edit values here.
-export WINDOWS_DISK_CAPACITY=64G # Default maximum disk capacity is 64 Gigabyte. Change as your need.
-export PROCESSOR_CORE_AMOUNT=2 # Default is 2 core. Add or remove core(s) as your need.
-export RAM=4G # Default is 4 Gigabyte RAM. Change as your need.
+# Imports the user configurations from Configuration.sh
+source ./Configuration.sh
 
+# Check if there is a virtio-win.iso and Windows.iso file. virtio-win.iso file is the collection of VirtIO drivers and Windows.iso file is the Windows installation image. If not found, download them.
 if [ -f virtio-win.iso ]; then
     echo "A CDROM image of Virtio Drivers for Windows found. Skipping downloading virtio-win.iso."
 else
@@ -42,6 +41,5 @@ qemu-system-x86_64 \
  -device virtio-vga-gl,hostmem=32M \
  -device intel-hda -device hda-output,audiodev=audio0 \
  -audiodev sdl,id=audio0 \
- -virtfs local,path=/home/hashem/,mount_tag=host0,security_model=passthrough,id=host0 \
  -usb 
  
