@@ -3,7 +3,7 @@ Run Windows 10 and older versions in optimized environment inside plain QEmu wit
 You need these packages : *qemu-system-x86_64 (with KVM support), qemu-utils, qemu-system-gui, wget* and other dependencies that they need. 
 **Available features :**
 1) UEFI with Secure Boot enabled
-2) VirtIO and Hyper-V based optimizations
+2) VirtIO and Hyper-V optimizations
 4) Manual memory (RAM) ballooning
 5) Paravirtualized Internet
 6) Universal audio support
