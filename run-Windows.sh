@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Imports the user configurations from Configuration.sh
-source ./Configuration.sh
+. ./Configuration.sh
 
 # Check if there is a virtio-win.iso and Windows.iso file. virtio-win.iso file is the collection of VirtIO drivers and Windows.iso file is the Windows installation image. If not found, download them.
 if [ -f virtio-win.iso ]; then
@@ -41,5 +41,8 @@ qemu-system-x86_64 \
  -device virtio-vga-gl,hostmem=32M \
  -device intel-hda -device hda-output,audiodev=audio0 \
  -audiodev sdl,id=audio0 \
+ -chardev qemu-vdagent,id=ch1,name=vdagent,clipboard=on \
+ -device virtio-serial-pci \
+ -device virtserialport,chardev=ch1,name=com.redhat.spice.0 \
  -usb 
  
