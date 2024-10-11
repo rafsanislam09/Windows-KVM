@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Imports the user configurations from Configuration.sh
-. ./Configuration.sh
+. ./Configuration.conf
 
 # Check if there is a virtio-win.iso and Windows.iso file. virtio-win.iso file is the collection of VirtIO drivers and Windows.iso file is the Windows installation image. If not found, download them.
 if [ -f virtio-win.iso ]; then
