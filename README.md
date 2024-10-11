@@ -15,7 +15,7 @@ You need these packages : *qemu-system-x86_64 (with KVM support), qemu-utils, qe
 
 5. Paravirtualized Internet
 
-6. Universal audio support
+6. Universal host audio backend support from guest to host.
 
   
 
