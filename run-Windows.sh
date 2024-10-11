@@ -39,10 +39,10 @@ qemu-system-x86_64 \
  -device usb-tablet \
  -device virtio-net-pci,netdev=net0 \
  -device virtio-vga-gl,hostmem=32M \
- -device intel-hda -device hda-output,audiodev=audio0 \
+ -device intel-hda \
+ -device hda-output,audiodev=audio0 \
  -audiodev sdl,id=audio0 \
  -chardev qemu-vdagent,id=ch1,name=vdagent,clipboard=on \
  -device virtio-serial-pci \
  -device virtserialport,chardev=ch1,name=com.redhat.spice.0 \
  -usb 
- 
