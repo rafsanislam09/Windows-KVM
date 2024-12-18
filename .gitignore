@@ -1,2 +1,3 @@
 *.iso
 *.qcow2
+OVMF_VARS_4M.ms.fd
