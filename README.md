@@ -41,7 +41,7 @@ You need these packages : *qemu-system-x86_64 (with KVM support), qemu-utils, qe
 
 4. Install required packages `qemu-system-x86`  `qemu-utils`  `qemu-system-gui`  `wget` and other dependencies required for them.
 
-5. customize #Editable section in run-Windows.sh
+5. customize `#Editable` section in `Configuration.conf`
 
 6. run in terminal : `chmod +x ./run-Windows.sh && ./run-Windows.sh`.
 
@@ -51,7 +51,7 @@ You need these packages : *qemu-system-x86_64 (with KVM support), qemu-utils, qe
 
 1. Follow screen instructions.
 
-2. When you will be in 'Select Disk' section, click on 'Load drivers'. then browse to (CD/DVD) '[virtio-win-<version_number>\amd64\' and select 'w10' folder. Click OK. Then you will get the required driver to install Windows on a specific disk. Click Next and select the virtual disk.
+2. When you will be in 'Select Disk' section, click on 'Load drivers'. then browse to (CD/DVD) 'D:\virtio-win-<version_number>\amd64\' and select 'w10' folder. Click OK. Then you will get the required driver to install Windows on a specific disk. Click Next and select the virtual disk.
 
 3. Finish installation process.
 
@@ -59,7 +59,7 @@ You need these packages : *qemu-system-x86_64 (with KVM support), qemu-utils, qe
 
 **Installation of VirtIO drivers :**
 
-1. Go to virtio-win*** marked as a CDROM in File Explorer.
+1. Go to `virtio-win-<version-number>` disk marked as a CDROM in File Explorer.
 
 2. Run virtio-win-guest-tools.exe as an administrator.
 
