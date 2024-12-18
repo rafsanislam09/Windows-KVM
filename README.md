@@ -33,9 +33,7 @@ You need these packages : *qemu-system-x86_64 (with KVM support), qemu-utils, qe
 
 **Installation Preparation :**
 
-1. Verify your system supports KVM by installing `cpu-checker`package and running `sudo kvm-ok`. If KVM is enabled, you will get this message : `INFO: /dev/kvm exists;
-
-KVM acceleration can be used`
+1. Verify your system supports KVM by installing `cpu-checker`package and running `sudo kvm-ok`. If KVM is enabled, you will get this message : `INFO: /dev/kvm exists; KVM acceleration can be used`
 
 2. run in Terminal : `cd ~/Documents/ && git clone https://github.com/rafsanislam09/Windows-KVM.git --depth 1 && cd Windows-KVM`. Ensure you have installed git.
 
