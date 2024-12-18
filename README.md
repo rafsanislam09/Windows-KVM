@@ -41,7 +41,7 @@ KVM acceleration can be used`
 
 3. Download Windows ISO from [https://www.microsoft.com/software-download/](https://www.microsoft.com/software-download/), move it to the 'Windows-KVM' directory and rename it as 'Windows.iso'.
 
-4. Install required packages `qemu-system-x86_64`  `qemu-utils`  `qemu-system-gui`  `wget` and other dependencies required for them.
+4. Install required packages `qemu-system-x86`  `qemu-utils`  `qemu-system-gui`  `wget` and other dependencies required for them.
 
 5. customize #Editable section in run-Windows.sh
 
