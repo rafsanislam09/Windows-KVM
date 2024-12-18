@@ -1,7 +1,23 @@
-#!/bin/sh
+#!/bin/bash
 
 # Imports the user configurations from Configuration.sh
 . ./Configuration.conf
+
+# Define a persistent directory for the TPM socket
+TPM_SOCKET_DIR="$HOME/.qemu-tmp"
+TPM_SOCKET_PATH="$TPM_SOCKET_DIR/qemu-tpm-socket"
+
+# Check if the TPM socket directory exists, if not, create it
+if [ ! -d "$TPM_SOCKET_DIR" ]; then
+    mkdir -p "$TPM_SOCKET_DIR"
+    echo "Created TPM socket directory at $TPM_SOCKET_DIR"
+fi
+
+# Ensure the TPM socket file exists
+if [ ! -e "$TPM_SOCKET_PATH" ]; then
+    touch "$TPM_SOCKET_PATH"
+    echo "Created TPM socket file at $TPM_SOCKET_PATH"
+fi
 
 # Check if there is a virtio-win.iso and Windows.iso file. virtio-win.iso file is the collection of VirtIO drivers and Windows.iso file is the Windows installation image. If not found, download them.
 if [ -f virtio-win.iso ]; then
@@ -23,7 +39,7 @@ qemu-system-x86_64 \
  --enable-kvm \
  -name "Windows VM" \
  -cpu host,hv-relaxed,hv-vapic,hv-vpindex,hv-runtime,hv-time,hv-synic,hv-stimer,hv-tlbflush,hv-ipi,hv-frequencies,hv-reenlightenment,hv-evmcs,hv-stimer-direct,hv-avic,hv-syndbg,hv-xmm-input,hv-tlbflush-ext,hv-tlbflush-direct \
- -machine q35 \
+ -machine q35,accel=kvm \
  -vga none -display gtk,gl=on \
  -netdev user,id=net0 \
  -m $RAM \
@@ -38,11 +54,15 @@ qemu-system-x86_64 \
  -device virtio-balloon \
  -device usb-tablet \
  -device virtio-net-pci,netdev=net0 \
- -device virtio-vga-gl,hostmem=32M \
+ -device virtio-vga-gl,hostmem=32M,max_outputs=1 \
  -device intel-hda \
  -device hda-output,audiodev=audio0 \
  -audiodev sdl,id=audio0 \
  -chardev qemu-vdagent,id=ch1,name=vdagent,clipboard=on \
  -device virtio-serial-pci \
  -device virtserialport,chardev=ch1,name=com.redhat.spice.0 \
- -usb 
+ -usb \
+ # Enable TPM 2.0 emulation
+ -chardev socket,id=charchannel0,path="$TPM_SOCKET_PATH" \
+ -device tpm-tis,tpmdev=tpm0 \
+ -object tpm-tis,id=tpm0,device="$TPM_SOCKET_PATH"
