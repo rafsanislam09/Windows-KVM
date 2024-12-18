@@ -34,6 +34,10 @@ else
     qemu-img create -f qcow2 win.qcow2 $WINDOWS_DISK_CAPACITY
 fi
 
+#Emulate TPM 2.0
+swtpm socket --tpm2 --ctrl type=unixio,path=$TPM_SOCKET_PATH --daemon &
+# Allow a brief time for TPM to initialize before running QEMU
+sleep 2
 # Run qemu
 qemu-system-x86_64 \
  --enable-kvm \
